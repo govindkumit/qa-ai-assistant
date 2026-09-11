@@ -1,0 +1,18 @@
+LOGIN REQUIREMENTS
+
+1. Users must provide a valid username and password to log in.
+
+2. After 5 consecutive failed login attempts, the user account
+   will be locked.
+
+3. The account will remain locked for 15 minutes.
+
+4. A successful login resets the failed login attempt counter.
+
+5. Users can reset their password using the "Forgot Password"
+   functionality.
+
+6. Passwords must contain at least 8 characters.
+
+7. Passwords must contain at least one uppercase letter,
+   one lowercase letter, one number, and one special character.

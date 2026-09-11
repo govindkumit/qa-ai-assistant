@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>QA AI Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>🤖 QA AI Assistant</h1>
+
+        <p>
+            Your local AI testing assistant
+        </p>
+
+    </header>
+
+
+    <!-- KNOWLEDGE BASE -->
+
+    <section class="upload-section">
+
+        <h3>📚 Knowledge Base</h3>
+
+        <div class="upload-controls">
+
+            <input
+                type="file"
+                id="document-file"
+                accept=".txt,.pdf,.docx,.xlsx"
+            >
+
+            <button
+                onclick="uploadDocument()"
+            >
+                Upload Document
+            </button>
+
+        </div>
+
+        <div
+            id="upload-status"
+            class="status"
+        ></div>
+
+    </section>
+
+
+    <!-- CHAT -->
+
+    <div
+        id="chat-box"
+        class="chat-box"
+    >
+    </div>
+
+
+    <!-- REQUIREMENT ANALYSIS -->
+
+    <section
+        id="requirement-analysis"
+        class="coverage-dashboard"
+        style="display: none;"
+    >
+
+        <h2>
+            🔍 Requirement Analysis
+        </h2>
+
+
+        <div class="coverage-summary">
+
+            <div class="coverage-card">
+
+                <span>
+                    Quality
+                </span>
+
+                <strong
+                    id="requirement-quality"
+                >
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Clarity
+                </span>
+
+                <strong
+                    id="clarity-score"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Completeness
+                </span>
+
+                <strong
+                    id="completeness-score"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Testability
+                </span>
+
+                <strong
+                    id="testability-score"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="analysis-content"
+        >
+
+        </div>
+
+    </section>
+
+
+    <!-- TEST COVERAGE -->
+
+    <section
+        id="coverage-dashboard"
+        class="coverage-dashboard"
+        style="display: none;"
+    >
+
+        <h2>
+            🧪 Test Case Coverage
+        </h2>
+
+
+        <div class="coverage-summary">
+
+            <div class="coverage-card">
+
+                <span>
+                    Total Tests
+                </span>
+
+                <strong
+                    id="total-tests"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Valid
+                </span>
+
+                <strong
+                    id="valid-tests"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Invalid
+                </span>
+
+                <strong
+                    id="invalid-tests"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="coverage-card">
+
+                <span>
+                    Coverage
+                </span>
+
+                <strong
+                    id="coverage-score"
+                >
+                    0%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            Test Type Distribution
+        </h3>
+
+
+        <div class="coverage-types">
+
+            <div>
+                Positive:
+                <strong id="positive-count">
+                    0
+                </strong>
+            </div>
+
+            <div>
+                Negative:
+                <strong id="negative-count">
+                    0
+                </strong>
+            </div>
+
+            <div>
+                Boundary:
+                <strong id="boundary-count">
+                    0
+                </strong>
+            </div>
+
+            <div>
+                Edge:
+                <strong id="edge-count">
+                    0
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div
+            id="coverage-gaps"
+            class="coverage-gaps"
+        >
+
+        </div>
+
+    </section>
+
+
+    <!-- INPUT -->
+
+    <div class="input-area">
+
+        <input
+            type="text"
+            id="user-input"
+            placeholder="Enter a requirement or QA question..."
+            onkeydown="handleKeyDown(event)"
+        >
+
+
+        <button
+            onclick="sendMessage()"
+        >
+            Send
+        </button>
+
+
+        <button
+            onclick="analyzeRequirement()"
+        >
+            Analyze Requirement
+        </button>
+
+
+        <button
+            onclick="generateTestCases()"
+        >
+            Generate Test Cases
+        </button>
+
+    </div>
+
+</div>
+
+
+<script
+    src="/static/app.js"
+></script>
+
+</body>
+
+</html>
