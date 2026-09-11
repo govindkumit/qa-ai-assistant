@@ -4,209 +4,322 @@
 
 
 body {
+
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+
+    padding: 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f3f3f3;
+
+    color: #111;
 }
 
 
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 30px auto;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    height: calc(100vh - 40px);
+
+    margin: 0 auto;
+
     background: white;
-    border-radius: 16px;
+
+    border-radius: 18px;
+
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.12);
 }
 
 
+/* ============================================================
+   HEADER
+   ============================================================ */
+
 header {
+
     background: #222;
+
     color: white;
-    padding: 30px;
+
+    padding: 22px 30px;
+
+    flex-shrink: 0;
 }
 
 
 header h1 {
-    margin: 0 0 10px 0;
+
+    margin: 0 0 8px 0;
+
+    font-size: 32px;
 }
 
 
 header p {
+
     margin: 0;
+
+    font-size: 17px;
 }
 
 
-.upload-section {
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-
-.upload-controls {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-
-button {
-    border: none;
-    border-radius: 8px;
-    padding: 12px 18px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-
-button:hover {
-    opacity: 0.9;
-}
-
-
-.status {
-    margin-top: 10px;
-    font-size: 14px;
-}
-
+/* ============================================================
+   CHAT
+   ============================================================ */
 
 .chat-box {
-    height: 500px;
+
+    flex: 1;
+
+    min-height: 0;
+
     overflow-y: auto;
-    padding: 25px;
+
+    padding: 20px;
+
+    background: white;
 }
 
 
 .message {
-    margin-bottom: 15px;
-    padding: 15px;
+
+    max-width: 80%;
+
+    padding: 14px 18px;
+
+    margin-bottom: 12px;
+
     border-radius: 12px;
+
     line-height: 1.5;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
 }
 
 
 .message.user {
+
+    margin-left: auto;
+
     background: #e1f0ff;
-    margin-left: 20%;
 }
 
 
 .message.assistant {
+
+    margin-right: auto;
+
     background: #eeeeee;
-    margin-right: 15%;
 }
 
 
-.input-area {
-    display: flex;
-    gap: 10px;
-    padding: 20px;
+.message strong {
+
+    display: inline-block;
+
+    margin-bottom: 5px;
+}
+
+
+/* ============================================================
+   KNOWLEDGE BASE
+   ============================================================ */
+
+.knowledge-base {
+
+    flex-shrink: 0;
+
+    padding: 14px 20px;
+
     border-top: 1px solid #ddd;
-}
 
-
-.input-area input {
-    flex: 1;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
-}
-
-
-.coverage-dashboard {
-    margin: 20px;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 14px;
     background: #fafafa;
 }
 
 
-.coverage-dashboard h2 {
-    margin-top: 0;
+.knowledge-base h2 {
+
+    margin: 0 0 10px 0;
+
+    font-size: 20px;
 }
 
 
-.coverage-summary {
-    display: grid;
-    grid-template-columns:
-        repeat(4, 1fr);
-    gap: 15px;
+.upload-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
 }
 
 
-.coverage-card {
-    padding: 20px;
-    border-radius: 10px;
-    background: white;
-    border: 1px solid #ddd;
-    text-align: center;
-}
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 
+button {
 
-.coverage-card span {
-    display: block;
-    margin-bottom: 10px;
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px 16px;
+
     font-size: 14px;
+
+    cursor: pointer;
+
+    background: #eeeeee;
+
+    transition:
+        background 0.2s,
+        transform 0.1s;
 }
 
 
-.coverage-card strong {
-    font-size: 26px;
+button:hover {
+
+    background: #dddddd;
 }
 
 
-.coverage-types {
-    display: grid;
-    grid-template-columns:
-        repeat(4, 1fr);
+button:active {
+
+    transform: scale(0.98);
+}
+
+
+button:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   INPUT AREA
+   ============================================================ */
+
+.input-area {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
     gap: 10px;
-}
 
+    padding: 14px 20px;
 
-.coverage-types div {
+    border-top: 1px solid #ddd;
+
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
 }
 
 
-.coverage-gaps {
-    margin-top: 20px;
-    padding: 15px;
+#user-input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ccc;
+
     border-radius: 8px;
-    background: white;
-    border: 1px solid #ddd;
+
+    font-size: 16px;
+
+    outline: none;
 }
 
+
+#user-input:focus {
+
+    border-color: #777;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+#send-button,
+#analyze-button,
+#generate-button {
+
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
 @media (
     max-width: 800px
 ) {
 
-    .coverage-summary {
-        grid-template-columns:
-            repeat(2, 1fr);
+    body {
+
+        padding: 0;
     }
 
 
-    .coverage-types {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .container {
+
+        height: 100vh;
+
+        border-radius: 0;
+    }
+
+
+    header h1 {
+
+        font-size: 26px;
     }
 
 
     .input-area {
-        flex-direction: column;
+
+        flex-wrap: wrap;
     }
 
 
-    .message.user,
-    .message.assistant {
-        margin-left: 0;
-        margin-right: 0;
+    #user-input {
+
+        flex-basis: 100%;
+    }
+
+
+    #send-button,
+    #analyze-button,
+    #generate-button {
+
+        flex: 1;
     }
 }
